@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wakaleo.gameoflife</groupId>
     <artifactId>gameoflife</artifactId>
@@ -10,7 +13,7 @@
     <properties>
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easyb.version>1.4</easyb.version>
+        <!-- La propiedad easyb.version ha sido eliminada -->
         <cobertura.version>2.6</cobertura.version>
         <!-- A workaround for a bug in PMD -->
         <sourceJdk>1.8</sourceJdk>
@@ -79,7 +82,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.2.201409121644</version>
+                <version>0.8.7</version>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
@@ -111,24 +114,7 @@
                 <version>2.8.2</version>
             </plugin>
 
-            <plugin>
-                <groupId>org.easyb</groupId>
-                <artifactId>maven-easyb-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <storyType>html</storyType>
-                    <storyReport>target/easyb/easyb.html</storyReport>
-                    <easybTestDirectory>src/test/stories</easybTestDirectory>
-                    <jvmArguments>-Xmx512m -Dwebdriver.driver=${webdriver.driver}</jvmArguments>
-                </configuration>
-            </plugin>
+            <!-- Se ha eliminado el plugin de easyb -->
 
             <plugin>
                 <groupId>com.jelastic</groupId>
@@ -147,24 +133,7 @@
 
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.easyb</groupId>
-                    <artifactId>maven-easyb-plugin</artifactId>
-                    <version>${easyb.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>test</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <storyType>html</storyType>                         l
-                        <storyReport>${basedir}/target/easyb/easyb-report.html
-                        </storyReport>
-                    </configuration>
-                </plugin>
-
+                <!-- Se ha eliminado el plugin de easyb de pluginManagement -->
             </plugins>
         </pluginManagement>
         <extensions>
@@ -177,12 +146,7 @@
     </build>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.easyb</groupId>
-                <artifactId>easyb-core</artifactId>
-                <version>${easyb.version}</version>
-                <scope>test</scope>
-            </dependency>
+            <!-- Se ha eliminado la dependencia de easyb -->
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -217,7 +181,6 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-
         </profile>
         <profile>
             <id>metrics</id>
@@ -225,18 +188,18 @@
                 <plugins>
                     <!-- CHECKSTYLE -->
                     <!--<plugin>-->
-                        <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-                        <!--<version>2.9.1</version>-->
-                        <!--<dependencies>-->
-                            <!--<dependency>-->
-                                <!--<groupId>com.wakaleo.gameoflife</groupId>-->
-                                <!--<artifactId>gameoflife-build</artifactId>-->
-                                <!--<version>${project.version}</version>-->
-                            <!--</dependency>-->
-                        <!--</dependencies>-->
-                        <!--<configuration>-->
-                            <!--<configLocation>custom-checkstyle.xml</configLocation>-->
-                        <!--</configuration>-->
+                    <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                    <!--<version>2.9.1</version>-->
+                    <!--<dependencies>-->
+                    <!--<dependency>-->
+                    <!--<groupId>com.wakaleo.gameoflife</groupId>-->
+                    <!--<artifactId>gameoflife-build</artifactId>-->
+                    <!--<version>${project.version}</version>-->
+                    <!--</dependency>-->
+                    <!--</dependencies>-->
+                    <!--<configuration>-->
+                    <!--<configLocation>custom-checkstyle.xml</configLocation>-->
+                    <!--</configuration>-->
                     <!--</plugin>-->
 
                     <!-- PMD -->
@@ -308,7 +271,7 @@
                                 <plugin>
                                     <groupId>org.jacoco</groupId>
                                     <artifactId>jacoco-maven-plugin</artifactId>
-                                    <version>0.7.2.201409121644</version>
+                                    <version>0.8.7</version>
                                 </plugin>
                                 <plugin>
                                     <groupId>org.apache.maven.plugins</groupId>
@@ -446,7 +409,6 @@
                             <!-- CPD options -->
                             <minimumTokens>20</minimumTokens>
                             <ignoreIdentifiers>true</ignoreIdentifiers>
-
                         </configuration>
                     </plugin>
                     <plugin>
